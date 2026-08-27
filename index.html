@@ -1,129 +1,459 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Palabras y frases perdidas</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #0d0d0d;
-      color: #ffffff;
-      font-family: 'Georgia', serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9YKWEY6WPF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    .tarjeta-container {
-      position: relative;
-      width: 90%;
-      max-width: 420px;
-      aspect-ratio: 2 / 3;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-      background-size: cover;
-      background-position: center;
-    }
+      gtag('config', 'G-9YKWEY6WPF');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Metadatos Esenciales - Ruso -->
+    <title>Потерянные слова и фразы | Русская коллекция</title>
+    <meta name="description" content="Исследуйте русскую коллекцию следов и размышлений из проекта «Потерянные слова и фразы». Навигация по тематическим блокам в уникальном литературном оформлении.">
+    <meta name="keywords" content="потерянные слова, потерянные фразы, литература, размышления, литературная картография, русский">
+    
+    <!-- Open Graph para Redes Sociales -->
+    <meta property="og:title" content="Потерянные слова и фразы | Русская коллекция">
+    <meta property="og:description" content="Коллекция следов и литературных размышлений, организованная по тематическим блокам.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-ru/">
+    
+    <!-- Enlaces Hreflang para SEO Multilingüe -->
+    <link rel="alternate" hreflang="es" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-es/">
+    <link rel="alternate" hreflang="en" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-en/">
+    <link rel="alternate" hreflang="ja" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-jp/">
+    <link rel="alternate" hreflang="fr" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-fr/">
+    <link rel="alternate" hreflang="de" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-al/">
+    <link rel="alternate" hreflang="ru" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-ru/">
+    <link rel="alternate" hreflang="x-default" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabrasyfrasesperdidas/">
 
-    /* �rea central donde va superpuesta la frase sobre la plantilla */
-    .contenido-frase {
-      position: absolute;
-      top: 32%;
-      left: 10%;
-      right: 10%;
-      bottom: 25%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 10px;
-    }
-
-    .texto-huella {
-      font-size: 1.25rem;
-      line-height: 1.5;
-      color: #f5f5f5;
-      font-style: italic;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.9);
-    }
-
-    .numero-huella {
-      margin-top: 15px;
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      color: #a3a3a3;
-      text-transform: uppercase;
-    }
-
-    .boton-accion {
-      margin-top: 25px;
-      padding: 12px 28px;
-      background-color: transparent;
-      color: #d4af37;
-      border: 1px solid #d4af37;
-      border-radius: 25px;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      letter-spacing: 1px;
-    }
-
-    .boton-accion:hover {
-      background-color: #d4af37;
-      color: #000;
-    }
-  </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 900px;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+            color: #e0e0e0;
+        }
+        p.subtitle {
+            font-size: 1rem;
+            color: #888888;
+        }
+        .viewer-section {
+            display: flex;
+            width: 100%;
+            max-width: 900px;
+            flex-direction: column;
+            align-items: center;
+        }
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        select, button {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border: 1px solid #333333;
+            padding: 10px 16px;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+            touch-action: manipulation;
+        }
+        select:hover, button:hover:not(:disabled) {
+            background-color: #2a2a2a;
+            border-color: #555555;
+        }
+        button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            background-color: #000000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+        canvas {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .info-panel {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 480px;
+            font-size: 0.9rem;
+            color: #aaaaaa;
+        }
+        #loading {
+            position: absolute;
+            color: #ffffff;
+            font-size: 1.1rem;
+            background: rgba(0,0,0,0.7);
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: none;
+            z-index: 10;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="tarjeta-container" id="tarjeta">
-    <div class="contenido-frase">
-      <div class="texto-huella" id="textoFrase">Cargando huella...</div>
-      <div class="numero-huella" id="numeroHuella"></div>
+    <header>
+        <h1>Потерянные слова и фразы</h1>
+        <p class="subtitle">Коллекция следов и размышлений</p>
+    </header>
+
+    <div class="viewer-section">
+        <div class="controls">
+            <button id="homeBtn">🏠 Главная</button>
+            <select id="blockSelect"></select>
+            <button id="prevBtn">&larr; Назад</button>
+            <button id="nextBtn">Вперёд &rarr;</button>
+            <button id="randomBtn">🎲 Случайная</button>
+        </div>
+
+        <div class="canvas-container">
+            <div id="loading">Загрузка...</div>
+            <canvas id="cardCanvas"></canvas>
+        </div>
+
+        <div class="info-panel">
+            <span id="huellaCounter">--</span>
+        </div>
     </div>
-  </div>
 
-  <button class="boton-accion" onclick="mostrarFraseAleatoria()">Descubrir otra huella</button>
+<script>
+    // Строго 14 блоков с учетом русской грамматики и синтаксиса
+    const blockNamesRU = [
+        "Блок 1: Геометрия судьбы",
+        "Блок 2: Архитектура души",
+        "Блок 3: Анатомия молчания",
+        "Блок 4: Страх и его тени",
+        "Блок 5: Взгляд мира",
+        "Блок 6: Шум глупцов",
+        "Блок 7: Небо звёзд",
+        "Блок 8: Этика сердца",
+        "Блок 9: Время, которое дышит",
+        "Блок 10: Игра в жизнь",
+        "Блок 11: Биение свободы",
+        "Блок 12: Анатомия мышления",
+        "Блок 13: Вселенная слов",
+        "Блок 14: Одиночество, которое говорит"
+    ];
 
-  <script>
-    let todasLasFrases = [];
+    let allFrases = [];
+    let currentFilteredFrases = [];
+    let currentIndex = parseInt(sessionStorage.getItem('pyfp_ru_index') || '0', 10);
+    let animationFrameId = null;
+    let currentVideoElem = null;
 
-    // Mapeo de plantillas por bloque
-    const plantillasPorBloque = {
-      1: 'plantilla1.png'
-    };
+    let canvas, ctx, blockSelect, prevBtn, nextBtn, randomBtn, homeBtn, huellaCounter, loadingElem;
 
-    // Cargar frases desde el archivo JSON
-    fetch('frases.json')
-      .then(response => response.json())
-      .then(data => {
-        todasLasFrases = data;
-        mostrarFraseAleatoria();
-      })
-      .catch(error => console.error('Error al cargar las frases:', error));
-
-    function mostrarFraseAleatoria() {
-      if (todasLasFrases.length === 0) return;
-
-      // Selecci�n aleatoria
-      const indice = Math.floor(Math.random() * todasLasFrases.length);
-      const seleccionada = todasLasFrases[indice];
-
-      // Aplicar plantilla de fondo seg�n el bloque
-      const tarjeta = document.getElementById('tarjeta');
-      const imagenFondo = plantillasPorBloque[seleccionada.bloque] || 'plantilla1.png';
-      tarjeta.style.backgroundImage = `url('${imagenFondo}')`;
-
-      // Mostrar texto y n�mero de huella
-      document.getElementById('textoFrase').innerText = `"${seleccionada.texto}"`;
-      document.getElementById('numeroHuella').innerText = `Huella ${seleccionada.id.toString().padStart(2, '0')}`;
+    function populateSelect() {
+        if (!blockSelect) return;
+        const currentVal = sessionStorage.getItem('pyfp_ru_block') || "1";
+        blockSelect.innerHTML = "";
+        blockNamesRU.forEach((name, index) => {
+            const opt = document.createElement('option');
+            opt.value = (index + 1).toString();
+            opt.textContent = name;
+            if ((index + 1).toString() === currentVal) {
+                opt.selected = true;
+            }
+            blockSelect.appendChild(opt);
+        });
     }
-  </script>
+
+    async function loadData() {
+        if (loadingElem) {
+            loadingElem.style.display = 'block';
+            loadingElem.textContent = "Загрузка...";
+        }
+        try {
+            const response = await fetch('frases.json?t=' + Date.now());
+            if (!response.ok) throw new Error("Ошибка HTTP " + response.status);
+            allFrases = await response.json();
+            if (loadingElem) loadingElem.style.display = 'none';
+
+            let activeBlock = sessionStorage.getItem('pyfp_ru_block') || "1";
+            if (blockSelect) blockSelect.value = activeBlock;
+
+            filterByBlock(parseInt(activeBlock, 10), true);
+        } catch (error) {
+            console.error("Ошибка при загрузке данных:", error);
+            if (loadingElem) {
+                loadingElem.style.display = 'block';
+                loadingElem.textContent = "Ошибка загрузки frases.json";
+            }
+        }
+    }
+
+    function filterByBlock(blockNum, keepIndex = false) {
+        sessionStorage.setItem('pyfp_ru_block', blockNum.toString());
+        currentFilteredFrases = allFrases.filter(f => Number(f.bloque || f.block) === Number(blockNum));
+        
+        if (!keepIndex) {
+            currentIndex = 0;
+        } else {
+            const savedIndex = parseInt(sessionStorage.getItem('pyfp_ru_index') || '0', 10);
+            currentIndex = (savedIndex < currentFilteredFrases.length) ? savedIndex : 0;
+        }
+
+        if (currentFilteredFrases.length === 0) {
+            stopAnimation();
+            if (huellaCounter) huellaCounter.textContent = "В этом блоке нет следов";
+            if (ctx && canvas) ctx.clearRect(0, 0, canvas.width, canvas.height);
+            return;
+        }
+
+        renderCurrentHuella();
+    }
+
+    function stopAnimation() {
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        }
+        if (currentVideoElem) {
+            currentVideoElem.pause();
+            currentVideoElem.removeAttribute('src');
+            currentVideoElem.load();
+            currentVideoElem = null;
+        }
+    }
+
+    function renderCurrentHuella() {
+        if (currentFilteredFrases.length === 0) return;
+
+        stopAnimation();
+        sessionStorage.setItem('pyfp_ru_index', currentIndex.toString());
+
+        const item = currentFilteredFrases[currentIndex];
+        const currentBlockNum = Number(item.bloque || item.block);
+
+        if (huellaCounter) {
+            huellaCounter.textContent = `След ${item.id} (${currentIndex + 1} / ${currentFilteredFrases.length})`;
+        }
+        if (prevBtn) prevBtn.disabled = currentIndex === 0;
+        if (nextBtn) nextBtn.disabled = currentIndex === currentFilteredFrases.length - 1;
+
+        const imgPath = `plantilla${currentBlockNum}_ru.jpg`;
+        const videoPath = `plantilla${currentBlockNum}_ru_video.mp4`;
+
+        const bgImg = new Image();
+        bgImg.src = imgPath;
+
+        bgImg.onload = () => {
+            adjustCanvasSize(bgImg.naturalWidth, bgImg.naturalHeight);
+            drawCanvasFrame(bgImg, item.texto);
+            tryLoadVideo(videoPath, item.texto, bgImg);
+        };
+
+        bgImg.onerror = () => {
+            drawTextOnly(item.texto);
+        };
+    }
+
+    function adjustCanvasSize(width, height) {
+        if (!canvas) return;
+        canvas.width = width || 1080;
+        canvas.height = height || 1350;
+    }
+
+    function tryLoadVideo(videoSrc, text, fallbackImg) {
+        const video = document.createElement('video');
+        video.src = videoSrc;
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+
+        video.onloadeddata = () => {
+            currentVideoElem = video;
+            if (video.videoWidth && video.videoHeight) {
+                adjustCanvasSize(video.videoWidth, video.videoHeight);
+            }
+            video.play().then(() => {
+                function loop() {
+                    if (currentVideoElem === video && ctx && canvas) {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                        drawTextOverlay(text);
+                        animationFrameId = requestAnimationFrame(loop);
+                    }
+                }
+                loop();
+            }).catch(() => {
+                drawCanvasFrame(fallbackImg, text);
+            });
+        };
+
+        video.onerror = () => {
+            drawCanvasFrame(fallbackImg, text);
+        };
+    }
+
+    function drawCanvasFrame(bgImg, text) {
+        if (!ctx || !canvas) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+        drawTextOverlay(text);
+    }
+
+    function drawTextOnly(text) {
+        if (!ctx || !canvas) return;
+        adjustCanvasSize(1080, 1350);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawTextOverlay(text);
+    }
+
+    function drawTextOverlay(text) {
+        if (!ctx || !canvas || !text) return;
+        ctx.fillStyle = "#ffffff";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+
+        const maxWidth = canvas.width * 0.8;
+        const lineHeight = canvas.height * 0.052;
+        const x = canvas.width / 2;
+        const y = canvas.height * 0.46;
+
+        let fontSize = Math.round(canvas.width * 0.038);
+        if (text.length > 150) fontSize = Math.round(canvas.width * 0.032);
+        if (text.length > 250) fontSize = Math.round(canvas.width * 0.027);
+
+        ctx.font = `400 ${fontSize}px 'Montserrat', sans-serif`;
+
+        const words = text.split(' ');
+        let lines = [];
+        let currentLine = words[0];
+
+        for (let i = 1; i < words.length; i++) {
+            let word = words[i];
+            let width = ctx.measureText(currentLine + " " + word).width;
+            if (width < maxWidth) {
+                currentLine += " " + word;
+            } else {
+                lines.push(currentLine);
+                currentLine = word;
+            }
+        }
+        lines.push(currentLine);
+
+        const totalHeight = lines.length * lineHeight;
+        let startY = y - (totalHeight / 2) + (lineHeight / 2);
+
+        lines.forEach((line, index) => {
+            ctx.fillText(line, x, startY + (index * lineHeight));
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        canvas = document.getElementById('cardCanvas');
+        ctx = canvas ? canvas.getContext('2d') : null;
+        blockSelect = document.getElementById('blockSelect');
+        prevBtn = document.getElementById('prevBtn');
+        nextBtn = document.getElementById('nextBtn');
+        randomBtn = document.getElementById('randomBtn');
+        homeBtn = document.getElementById('homeBtn');
+        huellaCounter = document.getElementById('huellaCounter');
+        loadingElem = document.getElementById('loading');
+
+        populateSelect();
+
+        if (homeBtn) {
+            homeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.href = "https://palabrasyfrasesperdidas-dotcom.github.io/palabrasyfrasesperdidas/";
+            });
+        }
+
+        if (blockSelect) {
+            blockSelect.addEventListener('change', (e) => {
+                filterByBlock(parseInt(e.target.value, 10), false);
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    renderCurrentHuella();
+                }
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (currentIndex < currentFilteredFrases.length - 1) {
+                    currentIndex++;
+                    renderCurrentHuella();
+                }
+            });
+        }
+
+        if (randomBtn) {
+            randomBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (allFrases.length === 0) return;
+                const randomIndex = Math.floor(Math.random() * allFrases.length);
+                const randomItem = allFrases[randomIndex];
+                const blockValue = Number(randomItem.bloque || randomItem.block);
+                
+                blockSelect.value = blockValue.toString();
+                currentFilteredFrases = allFrases.filter(f => Number(f.bloque || f.block) === blockValue);
+                currentIndex = currentFilteredFrases.findIndex(f => f.id === randomItem.id);
+                if (currentIndex === -1) currentIndex = 0;
+                renderCurrentHuella();
+            });
+        }
+
+        loadData();
+    });
+</script>
 </body>
 </html>
