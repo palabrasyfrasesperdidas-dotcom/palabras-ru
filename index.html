@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9YKWEY6WPF"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,23 +12,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO & Metadatos Esenciales - Ruso -->
     <title>Потерянные слова и фразы | Русская коллекция</title>
     <meta name="description" content="Исследуйте русскую коллекцию следов и размышлений из проекта «Потерянные слова и фразы». Навигация по тематическим блокам в уникальном литературном оформлении.">
     <meta name="keywords" content="потерянные слова, потерянные фразы, литература, размышления, литературная картография, русский">
     
-    <!-- Open Graph para Redes Sociales -->
     <meta property="og:title" content="Потерянные слова и фразы | Русская коллекция">
     <meta property="og:description" content="Коллекция следов и литературных размышлений, организованная по тематическим блокам.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-ru/">
     
-    <!-- Enlaces Hreflang para SEO Multilingüe -->
     <link rel="alternate" hreflang="es" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-es/">
     <link rel="alternate" hreflang="en" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-en/">
     <link rel="alternate" hreflang="ja" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-jp/">
     <link rel="alternate" hreflang="fr" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-fr/">
     <link rel="alternate" hreflang="de" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-al/">
+    <link rel="alternate" hreflang="pt" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-pt/">
+    <link rel="alternate" hreflang="ar" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-ar/">
     <link rel="alternate" hreflang="ru" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-ru/">
     <link rel="alternate" hreflang="x-default" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabrasyfrasesperdidas/">
 
@@ -77,7 +75,7 @@
             flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             width: 100%;
         }
         select, button {
@@ -137,6 +135,55 @@
             display: none;
             z-index: 10;
         }
+
+        /* Top interaction button panel styles */
+        .interaccion-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .btn-accion {
+            background: #1a1a1a;
+            border: 1px solid #444;
+            color: #bbb;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-accion svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .btn-accion:hover {
+            border-color: #d4af37;
+            color: #fff;
+            background: #2a2a2a;
+        }
+
+        .btn-accion.activo-huella {
+            border-color: #e67e22;
+            color: #e67e22;
+            background: rgba(230, 126, 34, 0.05);
+        }
+
+        .btn-accion.activo-rumbo {
+            border-color: #3498db;
+            color: #3498db;
+            background: rgba(52, 152, 219, 0.05);
+        }
     </style>
 </head>
 <body>
@@ -155,6 +202,8 @@
             <button id="randomBtn">🎲 Случайная</button>
         </div>
 
+        <div id="botonesAccionContainer"></div>
+
         <div class="canvas-container">
             <div id="loading">Загрузка...</div>
             <canvas id="cardCanvas"></canvas>
@@ -166,6 +215,9 @@
     </div>
 
 <script>
+    const BIN_ID = "6a92fe69f5f4af5e2951f6fb";
+    const API_KEY = "$2a$10$cjWB6UsaBPWauztsla0YPOSy9cQHEcoA7iVzbdmOXpDrwNk6gf87C";
+
     // Строго 14 блоков с учетом русской грамматики и синтаксиса
     const blockNamesRU = [
         "Блок 1: Геометрия судьбы",
@@ -190,7 +242,7 @@
     let animationFrameId = null;
     let currentVideoElem = null;
 
-    let canvas, ctx, blockSelect, prevBtn, nextBtn, randomBtn, homeBtn, huellaCounter, loadingElem;
+    let canvas, ctx, blockSelect, prevBtn, nextBtn, randomBtn, homeBtn, huellaCounter, loadingElem, botonesAccionContainer;
 
     function populateSelect() {
         if (!blockSelect) return;
@@ -245,6 +297,7 @@
         if (currentFilteredFrases.length === 0) {
             stopAnimation();
             if (huellaCounter) huellaCounter.textContent = "В этом блоке нет следов";
+            if (botonesAccionContainer) botonesAccionContainer.innerHTML = "";
             if (ctx && canvas) ctx.clearRect(0, 0, canvas.width, canvas.height);
             return;
         }
@@ -273,6 +326,7 @@
 
         const item = currentFilteredFrases[currentIndex];
         const currentBlockNum = Number(item.bloque || item.block);
+        const idUnico = `ru_${item.id || (currentBlockNum + '_' + currentIndex)}`;
 
         if (huellaCounter) {
             huellaCounter.textContent = `След ${item.id} (${currentIndex + 1} / ${currentFilteredFrases.length})`;
@@ -280,7 +334,22 @@
         if (prevBtn) prevBtn.disabled = currentIndex === 0;
         if (nextBtn) nextBtn.disabled = currentIndex === currentFilteredFrases.length - 1;
 
-        const imgPath = `plantilla${currentBlockNum}_ru.jpg`;
+        if (botonesAccionContainer) {
+            botonesAccionContainer.innerHTML = `
+                <div class="interaccion-container">
+                    <button class="btn-accion" id="btn-huella-${idUnico}" onclick="darHuella('${idUnico}')">
+                        ⭐ Оставить след (<span id="count-huella-${idUnico}">0</span>)
+                    </button>
+                    <button class="btn-accion" id="btn-rumbo-${idUnico}" onclick="alternarRumbo('${idUnico}')">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+                        Сохранить курс
+                    </button>
+                </div>
+            `;
+            actualizarEstadoUIInteraccion(idUnico);
+        }
+
+        const imgPath = `plantilla${currentBlockNum}_ru.png`;
         const videoPath = `plantilla${currentBlockNum}_ru_video.mp4`;
 
         const bgImg = new Image();
@@ -293,8 +362,87 @@
         };
 
         bgImg.onerror = () => {
-            drawTextOnly(item.texto);
+            const bgImgJpg = new Image();
+            bgImgJpg.src = `plantilla${currentBlockNum}_ru.jpg`;
+            bgImgJpg.onload = () => {
+                adjustCanvasSize(bgImgJpg.naturalWidth, bgImgJpg.naturalHeight);
+                drawCanvasFrame(bgImgJpg, item.texto);
+                tryLoadVideo(videoPath, item.texto, bgImgJpg);
+            };
+            bgImgJpg.onerror = () => {
+                drawTextOnly(item.texto);
+            };
         };
+    }
+
+    async function actualizarEstadoUIInteraccion(idUnico) {
+        if (localStorage.getItem(`huella_${idUnico}`)) {
+            const btn = document.getElementById(`btn-huella-${idUnico}`);
+            if (btn) btn.classList.add('activo-huella');
+        }
+        if (localStorage.getItem(`rumbo_${idUnico}`)) {
+            const btnRumbo = document.getElementById(`btn-rumbo-${idUnico}`);
+            if (btnRumbo) btnRumbo.classList.add('activo-rumbo');
+        }
+
+        try {
+            let response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+                headers: { 'X-Master-Key': API_KEY }
+            });
+            let data = await response.json();
+            let contadores = data.record || {};
+            
+            const contadorSpan = document.getElementById(`count-huella-${idUnico}`);
+            if (contadorSpan) {
+                contadorSpan.textContent = contadores[idUnico] || 0;
+            }
+        } catch (e) {
+            console.error("Could not load footprints count", e);
+        }
+    }
+
+    async function darHuella(idUnico) {
+        if (localStorage.getItem(`huella_${idUnico}`)) return;
+
+        try {
+            let response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+                headers: { 'X-Master-Key': API_KEY }
+            });
+            let data = await response.json();
+            let contadores = data.record || {};
+
+            contadores[idUnico] = (contadores[idUnico] || 0) + 1;
+
+            await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Master-Key': API_KEY
+                },
+                body: JSON.stringify(contadores)
+            });
+
+            localStorage.setItem(`huella_${idUnico}`, 'true');
+            const btn = document.getElementById(`btn-huella-${idUnico}`);
+            const countSpan = document.getElementById(`count-huella-${idUnico}`);
+            if (btn) btn.classList.add('activo-huella');
+            if (countSpan) countSpan.textContent = contadores[idUnico];
+
+        } catch (e) {
+            console.error("Error registering footprint", e);
+        }
+    }
+
+    function alternarRumbo(idUnico) {
+        const btnRumbo = document.getElementById(`btn-rumbo-${idUnico}`);
+        
+        if (localStorage.getItem(`rumbo_${idUnico}`)) {
+            localStorage.removeItem(`rumbo_${idUnico}`);
+            if (btnRumbo) btnRumbo.classList.remove('activo-rumbo');
+        } else {
+            localStorage.setItem(`rumbo_${idUnico}`, 'true');
+            if (btnRumbo) btnRumbo.classList.add('activo-rumbo');
+        }
     }
 
     function adjustCanvasSize(width, height) {
@@ -400,6 +548,7 @@
         homeBtn = document.getElementById('homeBtn');
         huellaCounter = document.getElementById('huellaCounter');
         loadingElem = document.getElementById('loading');
+        botonesAccionContainer = document.getElementById('botonesAccionContainer');
 
         populateSelect();
 
