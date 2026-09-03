@@ -1,188 +1,85 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9YKWEY6WPF"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-9YKWEY6WPF');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Потерянные слова и фразы | Русская коллекция</title>
-    <meta name="description" content="Исследуйте русскую коллекцию следов и размышлений из проекта «Потерянные слова и фразы». Навигация по тематическим блокам в уникальном литературном оформлении.">
-    <meta name="keywords" content="потерянные слова, потерянные фразы, литература, размышления, литературная картография, русский">
-    
-    <meta property="og:title" content="Потерянные слова и фразы | Русская коллекция">
-    <meta property="og:description" content="Коллекция следов и литературных размышлений, организованная по тематическим блокам.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-ru/">
-    
-    <link rel="alternate" hreflang="es" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-es/">
-    <link rel="alternate" hreflang="en" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-en/">
-    <link rel="alternate" hreflang="ja" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-jp/">
-    <link rel="alternate" hreflang="fr" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-fr/">
-    <link rel="alternate" hreflang="de" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-al/">
-    <link rel="alternate" hreflang="pt" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-pt/">
-    <link rel="alternate" hreflang="ar" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-ar/">
-    <link rel="alternate" hreflang="ru" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabras-ru/">
-    <link rel="alternate" hreflang="x-default" href="https://palabrasyfrasesperdidas-dotcom.github.io/palabrasyfrasesperdidas/">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <title>Потерянные слова и фразы - Emilio José López Marín</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        :root {
+            --bg-color: #f4f1ea;
+            --text-color: #2c221e;
+            --accent-color: #8c6d46;
+            --card-bg: #fff9f0;
+            --border-color: #d3c5b4;
         }
         body {
-            background-color: #0d0d0d;
-            color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Georgia', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
         }
         header {
             text-align: center;
-            margin-bottom: 20px;
-            width: 100%;
+            padding: 2.5rem 1rem;
+            background-color: var(--card-bg);
+            border-bottom: 2px solid var(--border-color);
+        }
+        header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2.2rem;
+            color: var(--accent-color);
+        }
+        header p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        .container {
             max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
         }
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 5px;
-            color: #e0e0e0;
+        .block-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
         }
-        p.subtitle {
-            font-size: 1rem;
-            color: #888888;
+        .block-card h2 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
         }
-        .viewer-section {
-            display: flex;
-            width: 100%;
-            max-width: 900px;
-            flex-direction: column;
-            align-items: center;
-        }
-        .controls {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-bottom: 15px;
-            width: 100%;
-        }
-        select, button {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            border: 1px solid #333333;
-            padding: 10px 16px;
-            font-size: 0.95rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.2s, border-color 0.2s;
-            touch-action: manipulation;
-        }
-        select:hover, button:hover:not(:disabled) {
-            background-color: #2a2a2a;
-            border-color: #555555;
-        }
-        button:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-        }
-        .canvas-container {
+        .media-container {
             position: relative;
             width: 100%;
-            max-width: 480px;
-            background-color: #000000;
-            border-radius: 12px;
+            max-height: 450px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            background: #000;
         }
-        canvas {
+        .media-container img, .media-container video {
             width: 100%;
             height: auto;
             display: block;
+            object-fit: contain;
+            max-height: 450px;
         }
-        .info-panel {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            max-width: 480px;
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--card-bg);
+            border-top: 2px solid var(--border-color);
             font-size: 0.9rem;
-            color: #aaaaaa;
-        }
-        #loading {
-            position: absolute;
-            color: #ffffff;
-            font-size: 1.1rem;
-            background: rgba(0,0,0,0.7);
-            padding: 10px 20px;
-            border-radius: 8px;
-            display: none;
-            z-index: 10;
-        }
-
-        /* Top interaction button panel styles */
-        .interaccion-container {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .btn-accion {
-            background: #1a1a1a;
-            border: 1px solid #444;
-            color: #bbb;
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.25s ease;
-        }
-
-        .btn-accion svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-            flex-shrink: 0;
-        }
-
-        .btn-accion:hover {
-            border-color: #d4af37;
-            color: #fff;
-            background: #2a2a2a;
-        }
-
-        .btn-accion.activo-huella {
-            border-color: #e67e22;
-            color: #e67e22;
-            background: rgba(230, 126, 34, 0.05);
-        }
-
-        .btn-accion.activo-rumbo {
-            border-color: #3498db;
-            color: #3498db;
-            background: rgba(52, 152, 219, 0.05);
+            margin-top: 3rem;
         }
     </style>
 </head>
@@ -190,419 +87,140 @@
 
     <header>
         <h1>Потерянные слова и фразы</h1>
-        <p class="subtitle">Коллекция следов и размышлений</p>
+        <p>Эмиリオ Хосе Лопес Мартин</p>
     </header>
 
-    <div class="viewer-section">
-        <div class="controls">
-            <button id="homeBtn">🏠 Главная</button>
-            <select id="blockSelect"></select>
-            <button id="prevBtn">&larr; Назад</button>
-            <button id="nextBtn">Вперёд &rarr;</button>
-            <button id="randomBtn">🎲 Случайная</button>
+    <div class="container">
+
+        <!-- Блок 1 -->
+        <div class="block-card">
+            <h2>Блок 1: Геометрия судьбы</h2>
+            <div class="media-container">
+                <video controls poster="plantilla1_ru.jpg">
+                    <source src="plantilla1_video_ru.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видеоэлемент.
+                </video>
+            </div>
         </div>
 
-        <div id="botonesAccionContainer"></div>
-
-        <div class="canvas-container">
-            <div id="loading">Загрузка...</div>
-            <canvas id="cardCanvas"></canvas>
+        <!-- Блок 2 -->
+        <div class="block-card">
+            <h2>Блок 2: Архитектура души</h2>
+            <div class="media-container">
+                <video controls poster="plantilla2_ru.jpg">
+                    <source src="plantilla2_video_ru.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видеоэлемент.
+                </video>
+            </div>
         </div>
 
-        <div class="info-panel">
-            <span id="huellaCounter">--</span>
+        <!-- Блок 3 -->
+        <div class="block-card">
+            <h2>Блок 3: Анатомия тишины</h2>
+            <div class="media-container">
+                <video controls poster="plantilla3_ru.jpg">
+                    <source src="plantilla3_video_ru.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видеоэлемент.
+                </video>
+            </div>
         </div>
+
+        <!-- Блок 4 -->
+        <div class="block-card">
+            <h2>Блок 4: Страх и его тени</h2>
+            <div class="media-container">
+                <video controls poster="plantilla4_ru.jpg">
+                    <source src="plantilla4_video_ru.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видеоэлемент.
+                </video>
+            </div>
+        </div>
+
+        <!-- Блок 5 -->
+        <div class="block-card">
+            <h2>Блок 5: Взгляд мира</h2>
+            <div class="media-container">
+                <img src="plantilla5_ru.jpg" alt="Блок 5: Взгляд мира">
+            </div>
+        </div>
+
+        <!-- Блок 6 -->
+        <div class="block-card">
+            <h2>Блок 6: Шум глупцов</h2>
+            <div class="media-container">
+                <img src="plantilla6_ru.jpg" alt="Блок 6: Шум глупцов">
+            </div>
+        </div>
+
+        <!-- Блок 7 -->
+        <div class="block-card">
+            <h2>Блок 7: Небо со звездами</h2>
+            <div class="media-container">
+                <img src="plantilla7_ru.jpg" alt="Блок 7: Небо со звездами">
+            </div>
+        </div>
+
+        <!-- Блок 8 -->
+        <div class="block-card">
+            <h2>Блок 8: Этика сердца</h2>
+            <div class="media-container">
+                <img src="plantilla8_ru.jpg" alt="Блок 8: Этика сердца">
+            </div>
+        </div>
+
+        <!-- Блок 9 -->
+        <div class="block-card">
+            <h2>Блок 9: Дышащее время</h2>
+            <div class="media-container">
+                <img src="plantilla9_ru.jpg" alt="Блок 9: Дышащее время">
+            </div>
+        </div>
+
+        <!-- Блок 10 -->
+        <div class="block-card">
+            <h2>Блок 10: Игра под названием жизнь</h2>
+            <div class="media-container">
+                <img src="plantilla10_ru.jpg" alt="Блок 10: Игра под названием жизнь">
+            </div>
+        </div>
+
+        <!-- Блок 11 -->
+        <div class="block-card">
+            <h2>Блок 11: Биение свободы</h2>
+            <div class="media-container">
+                <img src="plantilla11_ru.jpg" alt="Блок 11: Биение свободы">
+            </div>
+        </div>
+
+        <!-- Блок 12 -->
+        <div class="block-card">
+            <h2>Блок 12: Анатомия мысли</h2>
+            <div class="media-container">
+                <img src="plantilla12_ru.jpg" alt="Блок 12: Анатомия мысли">
+            </div>
+        </div>
+
+        <!-- Блок 13 -->
+        <div class="block-card">
+            <h2>Блок 13: Вселенная слов</h2>
+            <div class="media-container">
+                <img src="plantilla13_ru.jpg" alt="Блок 13: Вселенная слов">
+            </div>
+        </div>
+
+        <!-- Блок 14 -->
+        <div class="block-card">
+            <h2>Блок 14: Говорящее одиночество</h2>
+            <div class="media-container">
+                <img src="plantilla14_ru.jpg" alt="Блок 14: Говорящее одиночество">
+            </div>
+        </div>
+
     </div>
 
-<script>
-    const BIN_ID = "6a92fe69f5f4af5e2951f6fb";
-    const API_KEY = "$2a$10$cjWB6UsaBPWauztsla0YPOSy9cQHEcoA7iVzbdmOXpDrwNk6gf87C";
+    <footer>
+        <p>&copy; 2026 Emilio José López Marín. Все права защищены.</p>
+    </footer>
 
-    // Строго 14 блоков с учетом русской грамматики и синтаксиса
-    const blockNamesRU = [
-        "Блок 1: Геометрия судьбы",
-        "Блок 2: Архитектура души",
-        "Блок 3: Анатомия молчания",
-        "Блок 4: Страх и его тени",
-        "Блок 5: Взгляд мира",
-        "Блок 6: Шум глупцов",
-        "Блок 7: Небо звёзд",
-        "Блок 8: Этика сердца",
-        "Блок 9: Время, которое дышит",
-        "Блок 10: Игра в жизнь",
-        "Блок 11: Биение свободы",
-        "Блок 12: Анатомия мышления",
-        "Блок 13: Вселенная слов",
-        "Блок 14: Одиночество, которое говорит"
-    ];
-
-    let allFrases = [];
-    let currentFilteredFrases = [];
-    let currentIndex = parseInt(sessionStorage.getItem('pyfp_ru_index') || '0', 10);
-    let animationFrameId = null;
-    let currentVideoElem = null;
-
-    let canvas, ctx, blockSelect, prevBtn, nextBtn, randomBtn, homeBtn, huellaCounter, loadingElem, botonesAccionContainer;
-
-    function populateSelect() {
-        if (!blockSelect) return;
-        const currentVal = sessionStorage.getItem('pyfp_ru_block') || "1";
-        blockSelect.innerHTML = "";
-        blockNamesRU.forEach((name, index) => {
-            const opt = document.createElement('option');
-            opt.value = (index + 1).toString();
-            opt.textContent = name;
-            if ((index + 1).toString() === currentVal) {
-                opt.selected = true;
-            }
-            blockSelect.appendChild(opt);
-        });
-    }
-
-    async function loadData() {
-        if (loadingElem) {
-            loadingElem.style.display = 'block';
-            loadingElem.textContent = "Загрузка...";
-        }
-        try {
-            const response = await fetch('frases.json?t=' + Date.now());
-            if (!response.ok) throw new Error("Ошибка HTTP " + response.status);
-            allFrases = await response.json();
-            if (loadingElem) loadingElem.style.display = 'none';
-
-            let activeBlock = sessionStorage.getItem('pyfp_ru_block') || "1";
-            if (blockSelect) blockSelect.value = activeBlock;
-
-            filterByBlock(parseInt(activeBlock, 10), true);
-        } catch (error) {
-            console.error("Ошибка при загрузке данных:", error);
-            if (loadingElem) {
-                loadingElem.style.display = 'block';
-                loadingElem.textContent = "Ошибка загрузки frases.json";
-            }
-        }
-    }
-
-    function filterByBlock(blockNum, keepIndex = false) {
-        sessionStorage.setItem('pyfp_ru_block', blockNum.toString());
-        currentFilteredFrases = allFrases.filter(f => Number(f.bloque || f.block) === Number(blockNum));
-        
-        if (!keepIndex) {
-            currentIndex = 0;
-        } else {
-            const savedIndex = parseInt(sessionStorage.getItem('pyfp_ru_index') || '0', 10);
-            currentIndex = (savedIndex < currentFilteredFrases.length) ? savedIndex : 0;
-        }
-
-        if (currentFilteredFrases.length === 0) {
-            stopAnimation();
-            if (huellaCounter) huellaCounter.textContent = "В этом блоке нет следов";
-            if (botonesAccionContainer) botonesAccionContainer.innerHTML = "";
-            if (ctx && canvas) ctx.clearRect(0, 0, canvas.width, canvas.height);
-            return;
-        }
-
-        renderCurrentHuella();
-    }
-
-    function stopAnimation() {
-        if (animationFrameId) {
-            cancelAnimationFrame(animationFrameId);
-            animationFrameId = null;
-        }
-        if (currentVideoElem) {
-            currentVideoElem.pause();
-            currentVideoElem.removeAttribute('src');
-            currentVideoElem.load();
-            currentVideoElem = null;
-        }
-    }
-
-    function renderCurrentHuella() {
-        if (currentFilteredFrases.length === 0) return;
-
-        stopAnimation();
-        sessionStorage.setItem('pyfp_ru_index', currentIndex.toString());
-
-        const item = currentFilteredFrases[currentIndex];
-        const currentBlockNum = Number(item.bloque || item.block);
-        const idUnico = `ru_${item.id || (currentBlockNum + '_' + currentIndex)}`;
-
-        if (huellaCounter) {
-            huellaCounter.textContent = `След ${item.id} (${currentIndex + 1} / ${currentFilteredFrases.length})`;
-        }
-        if (prevBtn) prevBtn.disabled = currentIndex === 0;
-        if (nextBtn) nextBtn.disabled = currentIndex === currentFilteredFrases.length - 1;
-
-        if (botonesAccionContainer) {
-            botonesAccionContainer.innerHTML = `
-                <div class="interaccion-container">
-                    <button class="btn-accion" id="btn-huella-${idUnico}" onclick="darHuella('${idUnico}')">
-                        ⭐ Оставить след (<span id="count-huella-${idUnico}">0</span>)
-                    </button>
-                    <button class="btn-accion" id="btn-rumbo-${idUnico}" onclick="alternarRumbo('${idUnico}')">
-                        <svg viewBox="0 0 24 24"><path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
-                        Сохранить курс
-                    </button>
-                </div>
-            `;
-            actualizarEstadoUIInteraccion(idUnico);
-        }
-
-        const imgPath = `plantilla${currentBlockNum}_ru.png`;
-        const videoPath = `plantilla${currentBlockNum}_video_ru.mp4`;
-
-        const bgImg = new Image();
-        bgImg.src = imgPath;
-
-        bgImg.onload = () => {
-            adjustCanvasSize(bgImg.naturalWidth, bgImg.naturalHeight);
-            drawCanvasFrame(bgImg, item.texto);
-            tryLoadVideo(videoPath, item.texto, bgImg);
-        };
-
-        bgImg.onerror = () => {
-            const bgImgJpg = new Image();
-            bgImgJpg.src = `plantilla${currentBlockNum}_ru.jpg`;
-            bgImgJpg.onload = () => {
-                adjustCanvasSize(bgImgJpg.naturalWidth, bgImgJpg.naturalHeight);
-                drawCanvasFrame(bgImgJpg, item.texto);
-                tryLoadVideo(videoPath, item.texto, bgImgJpg);
-            };
-            bgImgJpg.onerror = () => {
-                drawTextOnly(item.texto);
-            };
-        };
-    }
-
-    async function actualizarEstadoUIInteraccion(idUnico) {
-        if (localStorage.getItem(`huella_${idUnico}`)) {
-            const btn = document.getElementById(`btn-huella-${idUnico}`);
-            if (btn) btn.classList.add('activo-huella');
-        }
-        if (localStorage.getItem(`rumbo_${idUnico}`)) {
-            const btnRumbo = document.getElementById(`btn-rumbo-${idUnico}`);
-            if (btnRumbo) btnRumbo.classList.add('activo-rumbo');
-        }
-
-        try {
-            let response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
-                headers: { 'X-Master-Key': API_KEY }
-            });
-            let data = await response.json();
-            let contadores = data.record || {};
-            
-            const contadorSpan = document.getElementById(`count-huella-${idUnico}`);
-            if (contadorSpan) {
-                contadorSpan.textContent = contadores[idUnico] || 0;
-            }
-        } catch (e) {
-            console.error("Could not load footprints count", e);
-        }
-    }
-
-    async function darHuella(idUnico) {
-        if (localStorage.getItem(`huella_${idUnico}`)) return;
-
-        try {
-            let response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
-                headers: { 'X-Master-Key': API_KEY }
-            });
-            let data = await response.json();
-            let contadores = data.record || {};
-
-            contadores[idUnico] = (contadores[idUnico] || 0) + 1;
-
-            await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Master-Key': API_KEY
-                },
-                body: JSON.stringify(contadores)
-            });
-
-            localStorage.setItem(`huella_${idUnico}`, 'true');
-            const btn = document.getElementById(`btn-huella-${idUnico}`);
-            const countSpan = document.getElementById(`count-huella-${idUnico}`);
-            if (btn) btn.classList.add('activo-huella');
-            if (countSpan) countSpan.textContent = contadores[idUnico];
-
-        } catch (e) {
-            console.error("Error registering footprint", e);
-        }
-    }
-
-    function alternarRumbo(idUnico) {
-        const btnRumbo = document.getElementById(`btn-rumbo-${idUnico}`);
-        
-        if (localStorage.getItem(`rumbo_${idUnico}`)) {
-            localStorage.removeItem(`rumbo_${idUnico}`);
-            if (btnRumbo) btnRumbo.classList.remove('activo-rumbo');
-        } else {
-            localStorage.setItem(`rumbo_${idUnico}`, 'true');
-            if (btnRumbo) btnRumbo.classList.add('activo-rumbo');
-        }
-    }
-
-    function adjustCanvasSize(width, height) {
-        if (!canvas) return;
-        canvas.width = width || 1080;
-        canvas.height = height || 1350;
-    }
-
-    function tryLoadVideo(videoSrc, text, fallbackImg) {
-        const video = document.createElement('video');
-        video.src = videoSrc;
-        video.muted = true;
-        video.loop = true;
-        video.playsInline = true;
-
-        video.onloadeddata = () => {
-            currentVideoElem = video;
-            if (video.videoWidth && video.videoHeight) {
-                adjustCanvasSize(video.videoWidth, video.videoHeight);
-            }
-            video.play().then(() => {
-                function loop() {
-                    if (currentVideoElem === video && ctx && canvas) {
-                        ctx.clearRect(0, 0, canvas.width, canvas.height);
-                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                        drawTextOverlay(text);
-                        animationFrameId = requestAnimationFrame(loop);
-                    }
-                }
-                loop();
-            }).catch(() => {
-                drawCanvasFrame(fallbackImg, text);
-            });
-        };
-
-        video.onerror = () => {
-            drawCanvasFrame(fallbackImg, text);
-        };
-    }
-
-    function drawCanvasFrame(bgImg, text) {
-        if (!ctx || !canvas) return;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
-        drawTextOverlay(text);
-    }
-
-    function drawTextOnly(text) {
-        if (!ctx || !canvas) return;
-        adjustCanvasSize(1080, 1350);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawTextOverlay(text);
-    }
-
-    function drawTextOverlay(text) {
-        if (!ctx || !canvas || !text) return;
-        ctx.fillStyle = "#ffffff";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-
-        const maxWidth = canvas.width * 0.8;
-        const lineHeight = canvas.height * 0.052;
-        const x = canvas.width / 2;
-        const y = canvas.height * 0.46;
-
-        let fontSize = Math.round(canvas.width * 0.038);
-        if (text.length > 150) fontSize = Math.round(canvas.width * 0.032);
-        if (text.length > 250) fontSize = Math.round(canvas.width * 0.027);
-
-        ctx.font = `400 ${fontSize}px 'Montserrat', sans-serif`;
-
-        const words = text.split(' ');
-        let lines = [];
-        let currentLine = words[0];
-
-        for (let i = 1; i < words.length; i++) {
-            let word = words[i];
-            let width = ctx.measureText(currentLine + " " + word).width;
-            if (width < maxWidth) {
-                currentLine += " " + word;
-            } else {
-                lines.push(currentLine);
-                currentLine = word;
-            }
-        }
-        lines.push(currentLine);
-
-        const totalHeight = lines.length * lineHeight;
-        let startY = y - (totalHeight / 2) + (lineHeight / 2);
-
-        lines.forEach((line, index) => {
-            ctx.fillText(line, x, startY + (index * lineHeight));
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        canvas = document.getElementById('cardCanvas');
-        ctx = canvas ? canvas.getContext('2d') : null;
-        blockSelect = document.getElementById('blockSelect');
-        prevBtn = document.getElementById('prevBtn');
-        nextBtn = document.getElementById('nextBtn');
-        randomBtn = document.getElementById('randomBtn');
-        homeBtn = document.getElementById('homeBtn');
-        huellaCounter = document.getElementById('huellaCounter');
-        loadingElem = document.getElementById('loading');
-        botonesAccionContainer = document.getElementById('botonesAccionContainer');
-
-        populateSelect();
-
-        if (homeBtn) {
-            homeBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.location.href = "https://palabrasyfrasesperdidas-dotcom.github.io/palabrasyfrasesperdidas/";
-            });
-        }
-
-        if (blockSelect) {
-            blockSelect.addEventListener('change', (e) => {
-                filterByBlock(parseInt(e.target.value, 10), false);
-            });
-        }
-
-        if (prevBtn) {
-            prevBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    renderCurrentHuella();
-                }
-            });
-        }
-
-        if (nextBtn) {
-            nextBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (currentIndex < currentFilteredFrases.length - 1) {
-                    currentIndex++;
-                    renderCurrentHuella();
-                }
-            });
-        }
-
-        if (randomBtn) {
-            randomBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (allFrases.length === 0) return;
-                const randomIndex = Math.floor(Math.random() * allFrases.length);
-                const randomItem = allFrases[randomIndex];
-                const blockValue = Number(randomItem.bloque || randomItem.block);
-                
-                blockSelect.value = blockValue.toString();
-                currentFilteredFrases = allFrases.filter(f => Number(f.bloque || f.block) === blockValue);
-                currentIndex = currentFilteredFrases.findIndex(f => f.id === randomItem.id);
-                if (currentIndex === -1) currentIndex = 0;
-                renderCurrentHuella();
-            });
-        }
-
-        loadData();
-    });
-</script>
 </body>
 </html>
